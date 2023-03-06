@@ -18,7 +18,7 @@ class FacePalm():
         """
         Saves the Face Palm GIF
 
-        :param name: Image Name/PATH
+        :param name: Image Name/PATH (Optional)
         :returns: GIF, bool
         :raise InvalidFileFormat: When an unsupported file format given
         :raise ImageNotFound: When failed to save Image
@@ -48,7 +48,7 @@ class Hug():
         """
         Saves the Hug GIF
 
-        :param name: Image Name/PATH
+        :param name: Image Name/PATH (Optional)
         :returns: GIF, bool
         :raise InvalidFileFormat: When an unsupported file format given
         :raise ImageNotFound: When failed to save Image
@@ -78,7 +78,7 @@ class Pat():
         """
         Saves the Pat GIF
 
-        :param name: Image Name/PATH
+        :param name: Image Name/PATH (Optional)
         :returns: GIF, bool
         :raise InvalidFileFormat: When an unsupported file format given
         :raise ImageNotFound: When failed to save Image
@@ -108,7 +108,7 @@ class Wink():
         """
         Saves the Wink GIF
 
-        :param name: Image Name/PATH
+        :param name: Image Name/PATH (Optional)
         :returns: GIF, bool
         :raise InvalidFileFormat: When an unsupported file format given
         :raise ImageNotFound: When failed to save Image
