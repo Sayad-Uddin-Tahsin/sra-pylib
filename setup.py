@@ -7,7 +7,6 @@ setup(
     name='sra-pylib',
     version='1.0.0',
     author='Sayad Uddin Tahsin',
-    author_email='mr.pluto012@gmail.com',
     description='A Wrapper of some-random-api for Python',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -31,5 +30,6 @@ setup(
     project_urls={
         'Bug Tracker': 'https://github.com/Sayad-Uddin-Tahsin/sra-pylib/issues',
         'PyPI': 'https://pypi.org/project/sra-pylib/'
-    }
+    },
+    keywords=['some-random-api', 'sra', 'api-wrapper', 'sra-pylib', 'sra-wrapper', 'tahsin-project']
 )
