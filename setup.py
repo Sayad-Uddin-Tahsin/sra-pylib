@@ -16,9 +16,6 @@ setup(
     install_requires=[
         'requests>=2.28.2'
     ],
-    dependency_links=[
-        'https://pypi.org/project/sra-pylib/'
-    ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
