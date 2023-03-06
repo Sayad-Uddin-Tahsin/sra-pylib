@@ -13,7 +13,7 @@ import sra
 ```
 With `sra-python`, you can easily access the various endpoints of `some-random-api` in your Python projects, making it a powerful tool for working with image, fact, and other types of data.
 
-[![Status](https://img.shields.io/static/v1?label=Status&message=Stable&color=green)](https://pypi.org/projects/sra-python) [![Supported Versions](https://img.shields.io/badge/3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-3670A0?style=flat&logo=python&logoColor=ffdd54&label=Python)](https://pypi.org/projects/sra-python)
+[![Status](https://img.shields.io/static/v1?label=Status&message=Stable&color=green)](https://pypi.org/project/sra-python) [![Supported Versions](https://img.shields.io/badge/3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-3670A0?style=flat&logo=python&logoColor=ffdd54&label=Python)](https://pypi.org/project/sra-python)
 
 ## Installation
 You can install `sra-python` using `pip`:
