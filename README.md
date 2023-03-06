@@ -22,7 +22,7 @@ python -m pip install sra-pylib
 `sra-pylib` requires Python 3.7 or later.
 
 ## Endpoints
-`sra-pylib` is currently under development. Currently, only the `animal`, `animu`, 'canvas' categories of APIs are available in stable version, but we're working to add more.
+`sra-pylib` is currently under development. Currently, only the `animal`, `animu` and `canvas` categories of APIs are available in stable version, but we're working to add more.
 
 ## Cloning the Repository
 If you want to work with the development version of sra-pylib, you can clone the repository and install it using pip:
