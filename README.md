@@ -1,6 +1,6 @@
 # sra-python
 
-`sra-python` is a Python wrapper for the [some-random-api](https://some-random-api.ml).
+`sra-python` is a Python wrapper for [some-random-api](https://some-random-api.ml).
 
 ```python
 import sra
