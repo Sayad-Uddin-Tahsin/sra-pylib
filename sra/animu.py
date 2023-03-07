@@ -10,7 +10,16 @@ class FacePalm():
         gif_link (str):
             The link to the Face Palm GIF.
     """
-    __resp = requests.get("https://some-random-api.ml/animu/face-palm").json()
+    try:
+        __resp = requests.get("https://some-random-api.ml/animu/face-palm")
+    except requests.exceptions.ConnectionError:
+            raise exceptions.APITimeout("API taken too long to respond!")
+    if __resp.status_code != 200:
+        raise exceptions.APIError(
+                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+
+    __resp = __resp.json()
+
     gif_link = __resp['link']
 
     @classmethod
@@ -27,7 +36,10 @@ class FacePalm():
             raise exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".gif"!')
         path = name
-        r = requests.get(cls.gif_link, stream=True)
+        try:
+            r = requests.get(cls.gif_link, stream=True)
+        except requests.exceptions.ConnectionError:
+            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
         if r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(r.content)
@@ -40,7 +52,16 @@ class Hug():
     """
     Returns the GIF Link of a Hug by attributes
     """
-    __resp = requests.get("https://some-random-api.ml/animu/hug").json()
+    try:
+        __resp = requests.get("https://some-random-api.ml/animu/hug")
+    except requests.exceptions.ConnectionError:
+            raise exceptions.APITimeout("API taken too long to respond!")
+    if __resp.status_code != 200:
+        raise exceptions.APIError(
+                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+
+    __resp = __resp.json()
+
     gif_link = __resp['link']
 
     @classmethod
@@ -57,7 +78,10 @@ class Hug():
             raise exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".gif"!')
         path = name
-        r = requests.get(cls.gif_link, stream=True)
+        try:
+            r = requests.get(cls.gif_link, stream=True)
+        except requests.exceptions.ConnectionError:
+            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
         if r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(r.content)
@@ -70,7 +94,16 @@ class Pat():
     """
     Returns the GIF Link of a Pat by attributes
     """
-    __resp = requests.get("https://some-random-api.ml/animu/pat").json()
+    try:
+        __resp = requests.get("https://some-random-api.ml/animu/pat")
+    except requests.exceptions.ConnectionError:
+            raise exceptions.APITimeout("API taken too long to respond!")
+    if __resp.status_code != 200:
+        raise exceptions.APIError(
+                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+
+    __resp = __resp.json()
+
     gif_link = __resp['link']
 
     @classmethod
@@ -87,7 +120,10 @@ class Pat():
             raise exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".gif"!')
         path = name
-        r = requests.get(cls.gif_link, stream=True)
+        try:
+            r = requests.get(cls.gif_link, stream=True)
+        except requests.exceptions.ConnectionError:
+            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
         if r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(r.content)
@@ -100,7 +136,16 @@ class Wink():
     """
     Returns the GIF Link of a Wink by attributes
     """
-    __resp = requests.get("https://some-random-api.ml/animu/wink").json()
+    try:
+        __resp = requests.get("https://some-random-api.ml/animu/wink")
+    except requests.exceptions.ConnectionError:
+            raise exceptions.APITimeout("API taken too long to respond!")
+    if __resp.status_code != 200:
+        raise exceptions.APIError(
+                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+
+    __resp = __resp.json()
+
     gif_link = __resp['link']
 
     @classmethod
@@ -117,7 +162,10 @@ class Wink():
             raise exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".gif"!')
         path = name
-        r = requests.get(cls.gif_link, stream=True)
+        try:
+            r = requests.get(cls.gif_link, stream=True)
+        except requests.exceptions.ConnectionError:
+            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
         if r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(r.content)
@@ -130,7 +178,10 @@ class Quote():
     """
     Returns a random Quote from Anime by attributes
     """
-    __resp = requests.get("https://some-random-api.ml/animu/quote").json()
+    try:
+        __resp = requests.get("https://some-random-api.ml/animu/quote").json()
+    except requests.exceptions.ConnectionError:
+            raise exceptions.APITimeout("API taken too long to respond!")
     quote = __resp['sentence']
     character = __resp['character']
     anime_name = __resp['anime']
