@@ -57,3 +57,19 @@ class InvalidAvatarFormat(Exception):
     """
     raises when Avatar URL is not .jpg or .png
     """
+
+class APIError(Exception):
+    """
+    raises when API responses an error!
+    """
+
+class APITimeout(Exception):
+    """
+    raises when API responses an error!
+    """
+
+class ImageRetrieveError(Exception):
+    """
+    raises when API responses an error!
+    """
+
