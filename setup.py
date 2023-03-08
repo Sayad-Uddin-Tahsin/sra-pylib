@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setup(
     name='sra-pylib',
-    version='1.3.0',
+    version='1.3.1',
     author='Sayad Uddin Tahsin',
     author_email='mr.pluto012@gmail.com',
     description='A Wrapper of some-random-api for Python',
