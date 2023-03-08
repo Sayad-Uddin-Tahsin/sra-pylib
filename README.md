@@ -12,7 +12,7 @@ import sra
 ```
 With `sra-pylib`, you can easily access the various endpoints of `some-random-api` in your Python projects, making it a powerful tool for working with image, fact, and other types of data.
 
-[![Status](https://img.shields.io/static/v1?label=Status&message=Stable&color=green)](https://pypi.org/project/sra-pylib) [![Supported Versions](https://img.shields.io/badge/3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-3670A0?style=flat&logo=python&logoColor=ffdd54&label=Python)](https://python.org)
+<a href="https://pypi.org/project/sra-pylib"><img src="https://img.shields.io/pypi/status/sra-pylib?label=Status&logo=pypi&logoColor=ffffff" height=22></a> <a href="https://pypi.org/project/sra-pylib"><img src="https://img.shields.io/pypi/v/sra-pylib?label=PyPI Version&logo=pypi&logoColor=ffffff" height=22></a> <a href="https://python.org"><img src="https://img.shields.io/pypi/pyversions/sra-pylib?label=Python&logo=python&logoColor=ffdd54" height=22></a>
 
 ## Installation
 You can install `sra-pylib` using `pip`:
