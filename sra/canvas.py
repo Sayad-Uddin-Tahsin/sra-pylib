@@ -1,7 +1,7 @@
 import typing
 import urllib.parse
 import requests
-from sra import exceptions
+import sra
 import re
 
 
@@ -29,11 +29,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -44,7 +47,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -52,13 +55,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/blue?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -71,11 +74,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -86,7 +92,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -94,13 +100,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/blurple?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -113,11 +119,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -128,7 +137,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -136,13 +145,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/blurple2?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -156,15 +165,18 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         if not 0 <= brightness <= 255:
-            raise exceptions.InvalidBrightnessPower("Brightness Power must be 0 - 255!")
+            raise sra.exceptions.InvalidBrightnessPower("Brightness Power must be 0 - 255!")
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
         for f in formats:
@@ -173,7 +185,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -181,13 +193,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/brightness?avatar={avatar_url}&brightness={brightness}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -201,17 +213,20 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         if color.startswith("#"):
             color = color.replace("#", "", 1)
         if len(color) not in [6, 8]:
-            raise exceptions.InvalidHEXColor(f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(color)} in length")
+            raise sra.exceptions.InvalidHEXColor(f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(color)} in length")
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
         for f in formats:
@@ -220,7 +235,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -228,13 +243,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/color?color={color}&avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -248,17 +263,20 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         if color.startswith("#"):
             color = color.replace("#", "", 1)
         if len(color) not in [6, 8]:
-            raise exceptions.InvalidHEXColor(f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(color)} in length")
+            raise sra.exceptions.InvalidHEXColor(f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(color)} in length")
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
         for f in formats:
@@ -267,7 +285,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -275,13 +293,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/color?color={color}&avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -294,11 +312,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -309,7 +330,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -317,13 +338,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/green?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -336,11 +357,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -351,7 +375,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -359,13 +383,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/greyscale?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -378,11 +402,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -393,7 +420,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -401,13 +428,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/invertgreyscale?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -420,11 +447,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -435,7 +465,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -443,13 +473,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/red?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -462,11 +492,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -477,7 +510,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -485,13 +518,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/filter/sepia?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -505,11 +538,14 @@ class Filter():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -520,7 +556,7 @@ class Filter():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -528,13 +564,13 @@ class Filter():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/threshold?avatar={avatar_url}&threshold={threshold}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
 
@@ -554,11 +590,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -569,7 +608,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -577,13 +616,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/bisexual?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -596,11 +635,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -611,7 +653,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -619,13 +661,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/blur?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -638,11 +680,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -653,7 +698,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -661,13 +706,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/crop?avatar={image_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -680,11 +725,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if hex.startswith("#"):
             hex = hex.replace("#", "", 1)
         if len(hex) not in [6, 8]:
-            raise exceptions.InvalidHEXColor(f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(hex)} in length")
+            raise sra.exceptions.InvalidHEXColor(f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(hex)} in length")
 
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -694,7 +742,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -702,13 +750,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/colorviewer?hex={hex}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -721,11 +769,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -736,7 +787,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -744,13 +795,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/heart?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -760,23 +811,29 @@ class Misc():
 
         :param rgb: Enter the RGB Code
         :return: HEX Code
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         codes = rgb.split(",")
         if len(codes) != 3:
-            raise exceptions.InvalidRGBCode(f"RGB Color Code must contains 3 blocks!")
+            raise sra.exceptions.InvalidRGBCode(f"RGB Color Code must contains 3 blocks!")
 
 
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/hex?rgb={rgb}")
         except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
 
         if __resp.status_code == 200:
             hex = __resp.json()['hex']
             return hex
         else:
-            raise exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+            if __resp.status_code != 200:
+                if 'error' in __resp.json():
+                    raise sra.exceptions.APIError(__resp.json()['error'])
+                else:
+                    raise sra.exceptions.APIError(
+                        f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
 
     @classmethod
@@ -789,11 +846,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -804,7 +864,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -812,13 +872,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/horny?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -831,11 +891,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -846,7 +909,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -854,13 +917,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/its-so-stupid?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -873,11 +936,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -888,7 +954,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -896,13 +962,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/jpg?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -915,11 +981,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -930,7 +999,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -938,13 +1007,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/lesbian?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -957,11 +1026,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -972,7 +1044,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -980,13 +1052,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/lgbt?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -999,11 +1071,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1014,7 +1089,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1022,13 +1097,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/lolice?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1044,11 +1119,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1059,7 +1137,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1067,13 +1145,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/namecard?avatar={avatar_url}&birthday={birthday}&username={username}{'&description=' + description if description != None else ''}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1086,11 +1164,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1101,7 +1182,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1109,13 +1190,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/nobitches?no={urllib.parse.quote_plus(text)}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1128,11 +1209,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1143,7 +1227,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1151,13 +1235,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/nonbinary?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1170,11 +1254,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1185,7 +1272,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1193,13 +1280,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/oogway?quote={urllib.parse.quote_plus(quote)}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1212,11 +1299,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1227,7 +1317,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1235,13 +1325,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/oogway2?quote={urllib.parse.quote_plus(quote)}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1254,11 +1344,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1269,7 +1362,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1277,13 +1370,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/pansexual?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1296,11 +1389,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1311,7 +1407,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1319,13 +1415,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/pixelate?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1335,26 +1431,31 @@ class Misc():
 
         :param hex: Enter the RGB Code
         :return: RGB Code
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if hex.startswith("#"):
             hex = hex.replace("#", "", 1)
 
         if len(hex) not in [6, 8]:
-            raise exceptions.InvalidHEXColor(f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(hex)} in length")
-
+            raise sra.exceptions.InvalidHEXColor(f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(hex)} in length")
 
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/rgb?hex={hex}")
         except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
 
         if __resp.status_code == 200:
             __resp = __resp.json()
             rgb = f"{__resp['r']}, {__resp['g']}, {__resp['b']}"
             return rgb
         else:
-            raise exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+            if __resp.status_code != 200:
+                if 'error' in __resp.json():
+                    raise sra.exceptions.APIError(__resp.json()['error'])
+                else:
+                    raise sra.exceptions.APIError(
+                        f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
 
     @classmethod
@@ -1367,11 +1468,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1382,7 +1486,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1390,13 +1494,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/simpcard?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1409,11 +1513,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1424,7 +1531,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1432,13 +1539,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/tonikawa?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1451,11 +1558,14 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1466,7 +1576,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1474,13 +1584,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/misc/transgender?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     themes = typing.Literal['light', 'dark', 'dim']
@@ -1501,19 +1611,22 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if len(display_name) > 32:
-            raise exceptions.DisplayNameError("Display name length must be lesser than 32 characters!")
+            raise sra.exceptions.DisplayNameError("Display name length must be lesser than 32 characters!")
         if len(username) > 15:
-            raise exceptions.UsernameError("Username length must be lesser than 15 characters!")
+            raise sra.exceptions.UsernameError("Username length must be lesser than 15 characters!")
         if len(comment) > 1000:
-            raise exceptions.CommentError("Comment length must be lesser than 1000 characters!")
+            raise sra.exceptions.CommentError("Comment length must be lesser than 1000 characters!")
         if theme.lower() not in ['light', 'dark', 'dim']:
-            raise exceptions.ThemeError("Invalid Theme! Theme must be light, dark or dim!")
+            raise sra.exceptions.ThemeError("Invalid Theme! Theme must be light, dark or dim!")
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
+            raise sra.exceptions.InvalidAvatarURL("Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
 
@@ -1525,7 +1638,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png" or ".jpg"!')
 
         path = name
@@ -1533,13 +1646,13 @@ class Misc():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/tweet?avatar={avatar_url}&displayname={urllib.parse.quote_plus(display_name)}&username={urllib.parse.quote_plus(username)}&comment={urllib.parse.quote_plus(comment)}{'&replies=' + str(replyNumber) if replyNumber != None else ''}{'&likes=' + str(likeNumber) if likeNumber != None else ''}{'&retweets=' + str(retweetNumber) if retweetNumber != None else ''}&theme={theme.lower()}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1554,17 +1667,20 @@ class Misc():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if len(username) > 25:
-            raise exceptions.UsernameError("Username length must be lesser than 15 characters!")
+            raise sra.exceptions.UsernameError("Username length must be lesser than 15 characters!")
         if len(comment) > 1000:
-            raise exceptions.CommentError("Comment length must be lesser than 1000 characters!")
+            raise sra.exceptions.CommentError("Comment length must be lesser than 1000 characters!")
 
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg']
@@ -1575,7 +1691,7 @@ class Misc():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png" or ".jpg"!')
 
         path = name
@@ -1584,14 +1700,14 @@ class Misc():
             __resp = requests.get(f"https://some-random-api.ml/canvas/youtube-comment?avatar={avatar_url}&username={urllib.parse.quote_plus(username)}&comment={urllib.parse.quote_plus(comment)}",
             stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
 
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
 class Overlay():
@@ -1608,12 +1724,15 @@ class Overlay():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1624,7 +1743,7 @@ class Overlay():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1632,13 +1751,13 @@ class Overlay():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/comrade?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1651,12 +1770,15 @@ class Overlay():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1667,7 +1789,7 @@ class Overlay():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1675,13 +1797,13 @@ class Overlay():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/gay?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1694,12 +1816,15 @@ class Overlay():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1710,7 +1835,7 @@ class Overlay():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1718,13 +1843,13 @@ class Overlay():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/glass?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1737,12 +1862,15 @@ class Overlay():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1753,7 +1881,7 @@ class Overlay():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1761,13 +1889,13 @@ class Overlay():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/jail?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1780,12 +1908,15 @@ class Overlay():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1796,7 +1927,7 @@ class Overlay():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1804,13 +1935,13 @@ class Overlay():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/passed?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1823,12 +1954,15 @@ class Overlay():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.gif']
@@ -1839,7 +1973,7 @@ class Overlay():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".gif"!')
 
         path = name
@@ -1847,13 +1981,13 @@ class Overlay():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/triggered?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
 
 
     @classmethod
@@ -1866,12 +2000,15 @@ class Overlay():
         :return: Image, bool
         :raise InvalidFileFormat: When an unsupported file format is given
         :raise ImageNotFound: When failed to save Image
+        :raise InvalidAvatarURL: When Avatar URL doesn't meet the contidions
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         if not is_valid_url(avatar_url):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
         if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
-            raise exceptions.InvalidAvatarURL(
+            raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
         formats = ['.png', '.jpg', '.jpeg']
@@ -1882,7 +2019,7 @@ class Overlay():
                 break
 
         if not validFormat:
-            raise exceptions.InvalidFileFormat(
+            raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
 
         path = name
@@ -1890,10 +2027,10 @@ class Overlay():
         try:
             __resp = requests.get(f"https://some-random-api.ml/canvas/wasted?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__resp.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
