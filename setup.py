@@ -5,8 +5,9 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setup(
     name='sra-pylib',
-    version='1.2.0',
+    version='1.3.0',
     author='Sayad Uddin Tahsin',
+    author_email='mr.pluto012@gmail.com',
     description='A Wrapper of some-random-api for Python',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -15,6 +16,7 @@ setup(
     install_requires=[
         'requests>=2.28.2'
     ],
+    license='MIT',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
