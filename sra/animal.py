@@ -1,17 +1,22 @@
 import requests
-from sra import exceptions
-
+import sra
 
 class Bird():
     """
     Returns an Image Link and a Fact about Bird
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/bird")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -36,30 +41,36 @@ class Bird():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
 class Cat():
     """
     Returns an Image Link and a Fact about Cat
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/cat")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -84,30 +95,36 @@ class Cat():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
 class Dog():
     """
     Returns an Image Link and a Fact about Dog
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/dog")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -132,30 +149,36 @@ class Dog():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
 class Fox():
     """
     Returns an Image Link and a Fact about Fox
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/fox")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -180,30 +203,36 @@ class Fox():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
 class Kangaroo():
     """
     Returns an Image Link and a Fact about Kangaroo
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/kangaroo")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -228,30 +257,36 @@ class Kangaroo():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
 class Koala():
     """
     Returns an Image Link and a Fact about Koala
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/koala")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -276,30 +311,36 @@ class Koala():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
 class Panda():
     """
     Returns an Image Link and a Fact about Panda
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/panda")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -324,30 +365,36 @@ class Panda():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
 class Raccoon():
     """
     Returns an Image Link and a Fact about Raccoon
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/raccoon")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -372,30 +419,36 @@ class Raccoon():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
 class RedPanda():
     """
     Returns an Image Link and a Fact about Red Panda
+
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animal/red_panda")
     except requests.exceptions.ConnectionError:
-            raise exceptions.APITimeout("API taken too long to respond!")
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
-        raise exceptions.APIError(
+        if 'error' in __resp.json():
+            raise sra.exceptions.APIError(__resp.json()['error'])
+        else:
+            raise sra.exceptions.APIError(
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
 
     __resp = __resp.json()
@@ -420,15 +473,15 @@ class RedPanda():
                 validFormat = True
                 break
         if not validFormat:
-            raise exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
         except requests.exceptions.ConnectionError:
-            raise exceptions.ImageRetrieveError("Unable to Load the Image!")
+            raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __r.status_code == 200:
             with open(path, 'wb') as f:
                 f.write(__r.content)
                 return True
         else:
-            raise exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
+            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
