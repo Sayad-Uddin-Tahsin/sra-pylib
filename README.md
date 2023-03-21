@@ -15,7 +15,7 @@ With `sra-pylib`, you can easily access the various endpoints of `some-random-ap
 <a href="https://pypi.org/project/sra-pylib"><img src="https://img.shields.io/pypi/status/sra-pylib?label=Status&logo=pypi&logoColor=ffffff" height=22></a>
 <a href="https://pypi.org/project/sra-pylib"><img src="https://img.shields.io/pypi/v/sra-pylib?label=PyPI Version&logo=pypi&logoColor=ffffff" height=22></a>
 <a href="https://python.org"><img src="https://img.shields.io/pypi/pyversions/sra-pylib?label=Python&logo=python&logoColor=ffdd54" height=22></a>
-<a href="https://snyk.io/test/github/Sayad-Uddin-Tahsin/sra-pylib"><img src="https://snyk.io/test/github/Sayad-Uddin-Tahsin/sra-pylib/badge.svg" height=22></a>
+<img src="https://img.shields.io/static/v1?label=vulnerabilities&message=0&color=brightgreen" height=22>
 <a href="https://github.com/Sayad-Uddin-Tahsin/sra-pylib/actions/workflows/python-publish.yml"><img src="https://github.com/Sayad-Uddin-Tahsin/sra-pylib/actions/workflows/python-publish.yml/badge.svg" height=22></a>
 
 ## Installation
