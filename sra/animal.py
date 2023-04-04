@@ -32,6 +32,7 @@ class Bird():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
@@ -86,6 +87,7 @@ class Cat():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
@@ -140,6 +142,7 @@ class Dog():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
@@ -194,6 +197,7 @@ class Fox():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
@@ -248,6 +252,7 @@ class Kangaroo():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
@@ -302,6 +307,7 @@ class Koala():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
@@ -356,6 +362,7 @@ class Panda():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
@@ -410,6 +417,7 @@ class Raccoon():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
@@ -464,6 +472,7 @@ class RedPanda():
         :param name: Image Name/PATH (Optional)
         :returns: Image, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
