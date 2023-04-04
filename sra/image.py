@@ -24,6 +24,7 @@ class Bird:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "bird.png"):
@@ -32,6 +33,9 @@ class Bird:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -77,6 +81,7 @@ class Cat:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "cat.png"):
@@ -85,6 +90,9 @@ class Cat:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -130,6 +138,7 @@ class Dog:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "dog.png"):
@@ -138,6 +147,9 @@ class Dog:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -183,6 +195,7 @@ class Fox:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "fox.png"):
@@ -191,6 +204,9 @@ class Fox:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -236,6 +252,7 @@ class Kangaroo:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "kangaroo.png"):
@@ -244,6 +261,9 @@ class Kangaroo:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -289,6 +309,7 @@ class Koala:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "koala.png"):
@@ -297,6 +318,9 @@ class Koala:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -342,6 +366,7 @@ class Panda:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "panda.png"):
@@ -350,6 +375,9 @@ class Panda:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -395,6 +423,7 @@ class Pikachu:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "pikachu.png"):
@@ -403,6 +432,9 @@ class Pikachu:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -448,6 +480,7 @@ class Raccoon:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "raccoon.png"):
@@ -456,6 +489,9 @@ class Raccoon:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -501,6 +537,7 @@ class RedPanda:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "red panda.png"):
@@ -509,6 +546,9 @@ class RedPanda:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False
@@ -554,6 +594,7 @@ class Whale:
     __resp = __resp.json()
 
     image_link = __resp['link']
+    raw = __resp
 
     @classmethod
     def save_image(cls, name: str = "whale.png"):
@@ -562,6 +603,9 @@ class Whale:
 
         :param name: Image Name/PATH (Optional)
         :return: Image, bool
+        :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
+        :raise ImageNotFound: When failed to save Image
         """
         formats = ['.png', '.jpg', '.jpeg']
         validFormat = False

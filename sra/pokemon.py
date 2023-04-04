@@ -10,9 +10,11 @@ class Ability:
 
     def __init__(self, ability: str):
         """
-        Returns the id, name, generation, effects, description, pokemons, descriptions and raw response by attributes
+        :returns: id, name, generation, effects, description, pokemons, descriptions and raw response by attributes
 
         :param ability: Ability Name/ID
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         self.id, self.name, self.generation, self.effects, self.description, self.pokemons, self.descriptions, self.raw = self.__getability(
             ability)
@@ -52,9 +54,11 @@ class Item:
 
     def __init__(self, item: str):
         """
-        Returns the id, name, effects, cost, attributes, category, sprite, descriptions and raw response by attributes
+        :returns: id, name, effects, cost, attributes, category, sprite, descriptions and raw response by attributes
 
         :param item: Item Name/ID
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         self.id, self.name, self.effects, self.cost, self.attributes, self.category, self.sprite, self.descriptions, self.raw = self.__getitem(
             item)
@@ -91,9 +95,11 @@ class Move:
 
     def __init__(self, move: str):
         """
-        Returns the id, name, generation, effects, type, category, contest, pp, power, accuracy, priority, pokemon, descriptions and raw response by attributes
+        :returns: the id, name, generation, effects, type, category, contest, pp, power, accuracy, priority, pokemon, descriptions and raw response by attributes
 
         :param move: Move Name/ID
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         self.id, self.name, self.generation, self.effects, self.type, self.category, self.contest, self.pp, self.power, self.accuracy, self.priority, self.pokemon, self.descriptions, self.raw = self.__getmove(
             move)
@@ -135,9 +141,11 @@ class Pokedex:
 
     def __init__(self, pokemon: str):
         """
-        Returns the id, name, generation, effects, description, pokemons, descriptions and raw response by attributes
+        :returns: the id, name, generation, effects, description, pokemons, descriptions and raw response by attributes
 
         :param pokemon: Pokemon Name
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         self.name, self.id, self.type, self.species, self.abilities, self.height, self.weight, self.base_experience, self.gender, self.egg_groups, self.stats, self.family, self.sprites, self.description, self.generation, self.raw = self.__getpokemon(
             pokemon)

@@ -15,6 +15,8 @@ class Base64:
 
         :param text: The Human Readable text
         :return: str
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
 
         try:
@@ -32,6 +34,7 @@ class Base64:
         __resp = __resp.json()
 
         encoded = __resp['base64']
+        raw = __resp
         return encoded
 
     @classmethod
@@ -41,6 +44,8 @@ class Base64:
 
         :param base64: The Base64 Encoded Text
         :return: str
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
 
         try:
@@ -58,6 +63,7 @@ class Base64:
         __resp = __resp.json()
 
         decoded = __resp['text']
+        raw = __resp
         return decoded
 
 
@@ -73,6 +79,8 @@ class Binary:
 
         :param text: The Human Readable text
         :return: str
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
 
         try:
@@ -90,6 +98,7 @@ class Binary:
         __resp = __resp.json()
 
         encoded = __resp['binary']
+        raw = __resp
         return encoded
 
     @classmethod
@@ -99,6 +108,8 @@ class Binary:
 
         :param binary: The Binary Code
         :return: str
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
 
         try:
@@ -116,6 +127,7 @@ class Binary:
         __resp = __resp.json()
 
         decoded = __resp['text']
+        raw = __resp
         return decoded
 
 
@@ -125,6 +137,8 @@ def BotToken(id: str = None):
 
     :param id: ID of the Bot (Optional)
     :return: str
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get(f"https://some-random-api.ml/bottoken?id={urllib.parse.quote_plus(id)}")
@@ -139,6 +153,7 @@ def BotToken(id: str = None):
     __resp = __resp.json()
 
     token = __resp['token']
+    raw = __resp
     return token
 
 
@@ -148,6 +163,8 @@ def Dictionary(word: str):
 
     :param word: The word you want to find
     :return: str
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get(f"https://some-random-api.ml/dictionary?word={urllib.parse.quote_plus(word)}")
@@ -162,6 +179,7 @@ def Dictionary(word: str):
     __resp = __resp.json()
 
     definition = __resp['definition']
+    raw = __resp
     return definition
 
 
@@ -170,6 +188,8 @@ def Joke():
     Get a random Jokes
 
     :return: str
+    :raise APITimeout: API taken too long to respond!
+    :raise APIError: Error Returned by API
     """
     try:
         __resp = requests.get(f"https://some-random-api.ml/joke")
@@ -184,6 +204,7 @@ def Joke():
     __resp = __resp.json()
 
     joke = __resp['joke']
+    raw = __resp
     return joke
 
 
@@ -196,8 +217,11 @@ class Lyrics:
 
     def __init__(self, name: str):
         """
-        Returns title, author, lyrics, thumbnail, link, disclaimer, structured and raw response by attributes
+        :returns: title, author, lyrics, thumbnail, link, disclaimer, structured and raw response by attributes
         :param name: Song Name
+
+        :raise APITimeout: API taken too long to respond!
+        :raise APIError: Error Returned by API
         """
         self.title, self.author, self.lyrics, self.thumbnail, self.link, self.disclaimer, self.raw = self.__search(name)
         self.structured = self.__structured(name)

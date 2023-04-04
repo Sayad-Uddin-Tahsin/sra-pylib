@@ -24,6 +24,7 @@ class Bird:
     __resp = __resp.json()
 
     fact = __resp['fact']
+    raw = __resp
 
 
 class Cat:
@@ -48,6 +49,7 @@ class Cat:
     __resp = __resp.json()
 
     fact = __resp['fact']
+    raw = __resp
 
 
 class Dog:
@@ -72,6 +74,7 @@ class Dog:
     __resp = __resp.json()
 
     fact = __resp['fact']
+    raw = __resp
 
 
 class Fox:
@@ -96,6 +99,7 @@ class Fox:
     __resp = __resp.json()
 
     fact = __resp['fact']
+    raw = __resp
 
 
 class Koala:
@@ -120,6 +124,7 @@ class Koala:
     __resp = __resp.json()
 
     fact = __resp['fact']
+    raw = __resp
 
 
 class Panda:
@@ -144,3 +149,4 @@ class Panda:
     __resp = __resp.json()
 
     fact = __resp['fact']
+    raw = __resp

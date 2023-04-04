@@ -1,21 +1,18 @@
 import requests
 import sra
 
-class FacePalm():
+
+class FacePalm:
     """
-    Returns the GIF Link of a Face Palm by attribut
+    Returns the GIF Link of a Face Palm by attributes
+
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
-    es
-
-    Attributes:
-        gif_link (str):
-            The link to the Face Palm GIF.
     """
     try:
         __resp = requests.get("https://some-random-api.ml/animu/face-palm")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -25,16 +22,18 @@ class FacePalm():
 
     __resp = __resp.json()
 
+    raw = __resp
     gif_link = __resp['link']
 
     @classmethod
-    def save_gif(cls, name: str='face palm.gif'):
+    def save_gif(cls, name: str = 'face palm.gif'):
         """
         Saves the Face Palm GIF
 
         :param name: Image Name/PATH (Optional)
         :returns: GIF, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         if not str(name).endswith(".gif"):
@@ -53,7 +52,7 @@ class FacePalm():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the GIF. Status Code: {r.status_code} returned")
 
 
-class Hug():
+class Hug:
     """
     Returns the GIF Link of a Hug by attributes
 
@@ -63,7 +62,7 @@ class Hug():
     try:
         __resp = requests.get("https://some-random-api.ml/animu/hug")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -73,16 +72,18 @@ class Hug():
 
     __resp = __resp.json()
 
+    raw = __resp
     gif_link = __resp['link']
 
     @classmethod
-    def save_gif(cls, name: str='hug.gif'):
+    def save_gif(cls, name: str = 'hug.gif'):
         """
         Saves the Hug GIF
 
         :param name: Image Name/PATH (Optional)
         :returns: GIF, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         if not str(name).endswith(".gif"):
@@ -101,7 +102,7 @@ class Hug():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the GIF. Status Code: {r.status_code} returned")
 
 
-class Pat():
+class Pat:
     """
     Returns the GIF Link of a Pat by attributes
 
@@ -111,7 +112,7 @@ class Pat():
     try:
         __resp = requests.get("https://some-random-api.ml/animu/pat")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -121,16 +122,18 @@ class Pat():
 
     __resp = __resp.json()
 
+    raw = __resp
     gif_link = __resp['link']
 
     @classmethod
-    def save_gif(cls, name: str='pat.gif'):
+    def save_gif(cls, name: str = 'pat.gif'):
         """
         Saves the Pat GIF
 
         :param name: Image Name/PATH (Optional)
         :returns: GIF, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         if not str(name).endswith(".gif"):
@@ -149,7 +152,7 @@ class Pat():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the GIF. Status Code: {r.status_code} returned")
 
 
-class Wink():
+class Wink:
     """
     Returns the GIF Link of a Wink by attributes
 
@@ -159,7 +162,7 @@ class Wink():
     try:
         __resp = requests.get("https://some-random-api.ml/animu/wink")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -169,16 +172,18 @@ class Wink():
 
     __resp = __resp.json()
 
+    raw = __resp
     gif_link = __resp['link']
 
     @classmethod
-    def save_gif(cls, name: str='wink.gif'):
+    def save_gif(cls, name: str = 'wink.gif'):
         """
         Saves the Wink GIF
 
         :param name: Image Name/PATH (Optional)
         :returns: GIF, bool
         :raise InvalidFileFormat: When an unsupported file format given
+        :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise ImageNotFound: When failed to save Image
         """
         if not str(name).endswith(".gif"):
@@ -197,7 +202,7 @@ class Wink():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the GIF. Status Code: {r.status_code} returned")
 
 
-class Quote():
+class Quote:
     """
     Returns a random Quote from Anime by attributes
 
@@ -207,7 +212,7 @@ class Quote():
     try:
         __resp = requests.get("https://some-random-api.ml/animu/quote")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -216,6 +221,7 @@ class Quote():
                 f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
     __resp = __resp.json()
 
+    raw = __resp
     quote = __resp['sentence']
     character = __resp['character']
     anime_name = __resp['anime']
