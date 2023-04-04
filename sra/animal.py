@@ -1,7 +1,8 @@
 import requests
 import sra
 
-class Bird():
+
+class Bird:
     """
     Returns an Image Link and a Fact about Bird
 
@@ -11,7 +12,7 @@ class Bird():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/bird")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -23,9 +24,10 @@ class Bird():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="bird.png"):
+    def save_image(cls, name: str = "bird.png"):
         """
         Saves the Bird Image
 
@@ -42,7 +44,8 @@ class Bird():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
@@ -56,7 +59,7 @@ class Bird():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
-class Cat():
+class Cat:
     """
     Returns an Image Link and a Fact about Cat
 
@@ -66,7 +69,7 @@ class Cat():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/cat")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -78,9 +81,10 @@ class Cat():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="cat.png"):
+    def save_image(cls, name: str = "cat.png"):
         """
         Saves the Cat Image
 
@@ -97,7 +101,8 @@ class Cat():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
@@ -111,7 +116,7 @@ class Cat():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
-class Dog():
+class Dog:
     """
     Returns an Image Link and a Fact about Dog
 
@@ -121,7 +126,7 @@ class Dog():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/dog")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -133,9 +138,10 @@ class Dog():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="dog.png"):
+    def save_image(cls, name: str = "dog.png"):
         """
         Saves the Dog Image
 
@@ -152,7 +158,8 @@ class Dog():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
@@ -166,7 +173,7 @@ class Dog():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
-class Fox():
+class Fox:
     """
     Returns an Image Link and a Fact about Fox
 
@@ -176,7 +183,7 @@ class Fox():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/fox")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -188,9 +195,10 @@ class Fox():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="fox.png"):
+    def save_image(cls, name: str = "fox.png"):
         """
         Saves the Fox Image
 
@@ -207,7 +215,8 @@ class Fox():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
@@ -221,7 +230,7 @@ class Fox():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
-class Kangaroo():
+class Kangaroo:
     """
     Returns an Image Link and a Fact about Kangaroo
 
@@ -231,7 +240,7 @@ class Kangaroo():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/kangaroo")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -243,9 +252,10 @@ class Kangaroo():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="kangaroo.png"):
+    def save_image(cls, name: str = "kangaroo.png"):
         """
         Saves the Kangaroo Image
 
@@ -262,7 +272,8 @@ class Kangaroo():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
@@ -276,7 +287,7 @@ class Kangaroo():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
-class Koala():
+class Koala:
     """
     Returns an Image Link and a Fact about Koala
 
@@ -286,7 +297,7 @@ class Koala():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/koala")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -298,9 +309,10 @@ class Koala():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="koala.png"):
+    def save_image(cls, name: str = "koala.png"):
         """
         Saves the Koala Image
 
@@ -317,7 +329,8 @@ class Koala():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
@@ -331,7 +344,7 @@ class Koala():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
-class Panda():
+class Panda:
     """
     Returns an Image Link and a Fact about Panda
 
@@ -341,7 +354,7 @@ class Panda():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/panda")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -353,9 +366,10 @@ class Panda():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="panda.png"):
+    def save_image(cls, name: str = "panda.png"):
         """
         Saves the Panda Image
 
@@ -372,7 +386,8 @@ class Panda():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
@@ -386,7 +401,7 @@ class Panda():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
-class Raccoon():
+class Raccoon:
     """
     Returns an Image Link and a Fact about Raccoon
 
@@ -396,7 +411,7 @@ class Raccoon():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/raccoon")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -408,9 +423,10 @@ class Raccoon():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="raccoon.png"):
+    def save_image(cls, name: str = "raccoon.png"):
         """
         Saves the Raccoon Image
 
@@ -427,7 +443,8 @@ class Raccoon():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
@@ -441,7 +458,7 @@ class Raccoon():
             raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__r.status_code} returned")
 
 
-class RedPanda():
+class RedPanda:
     """
     Returns an Image Link and a Fact about Red Panda
 
@@ -451,7 +468,7 @@ class RedPanda():
     try:
         __resp = requests.get("https://some-random-api.ml/animal/red_panda")
     except requests.exceptions.ConnectionError:
-            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
         if 'error' in __resp.json():
             raise sra.exceptions.APIError(__resp.json()['error'])
@@ -463,9 +480,10 @@ class RedPanda():
 
     image_link = __resp['image']
     fact = __resp['fact']
+    raw = __resp
 
     @classmethod
-    def save_image(cls, name: str="red panda.png"):
+    def save_image(cls, name: str = "red panda.png"):
         """
         Saves the Red Panda Image
 
@@ -482,7 +500,8 @@ class RedPanda():
                 validFormat = True
                 break
         if not validFormat:
-            raise sra.exceptions.InvalidFileFormat('Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+            raise sra.exceptions.InvalidFileFormat(
+                'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
         path = name
         try:
             __r = requests.get(cls.image_link, stream=True)
