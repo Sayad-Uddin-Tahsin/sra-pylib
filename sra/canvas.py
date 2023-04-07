@@ -336,7 +336,7 @@ class Filter:
             raise sra.exceptions.ImageNotFound(
                 f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    def filter(self, avatar_url: str, name: str = "image.png"):
+    def Green(self, avatar_url: str, name: str = "image.png"):
         """
         Make your Avatar green like the Hulk.
 
