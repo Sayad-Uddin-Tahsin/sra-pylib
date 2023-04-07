@@ -4,6 +4,8 @@ import sra
 
 
 class Base64:
+    def __init__(self):
+        __resp = None
     """
     Encode and Decode Base64 Code.
     """
@@ -34,7 +36,6 @@ class Base64:
         __resp = __resp.json()
 
         encoded = __resp['base64']
-        raw = __resp
         return encoded
 
     @classmethod
@@ -63,7 +64,6 @@ class Base64:
         __resp = __resp.json()
 
         decoded = __resp['text']
-        raw = __resp
         return decoded
 
 
@@ -98,7 +98,6 @@ class Binary:
         __resp = __resp.json()
 
         encoded = __resp['binary']
-        raw = __resp
         return encoded
 
     @classmethod
@@ -127,11 +126,10 @@ class Binary:
         __resp = __resp.json()
 
         decoded = __resp['text']
-        raw = __resp
         return decoded
 
 
-def BotToken(id: str = None):
+class BotToken:
     """
     Generates Fake Discord Bot Token
 
@@ -140,24 +138,25 @@ def BotToken(id: str = None):
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get(f"https://some-random-api.ml/bottoken?id={urllib.parse.quote_plus(id)}")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
-    __resp = __resp.json()
+    def __init__(self, id: str = None):
+        self.__resp = None
+        try:
+            self.__resp = requests.get(f"https://some-random-api.ml/bottoken?id={urllib.parse.quote_plus(id)}")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
+        self.__resp = self.__resp.json()
 
-    token = __resp['token']
-    raw = __resp
-    return token
+        self.token = self.__resp['token']
+        self.raw = self.__resp
 
 
-def Dictionary(word: str):
+class Dictionary:
     """
     Get the Definition of any Word!
 
@@ -166,24 +165,25 @@ def Dictionary(word: str):
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get(f"https://some-random-api.ml/dictionary?word={urllib.parse.quote_plus(word)}")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
-    __resp = __resp.json()
+    def __init__(self, word: str):
+        self.__resp = None
+        try:
+            self.__resp = requests.get(f"https://some-random-api.ml/dictionary?word={urllib.parse.quote_plus(word)}")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
+        self.__resp = self.__resp.json()
 
-    definition = __resp['definition']
-    raw = __resp
-    return definition
+        self.definition = self.__resp['definition']
+        self.raw = self.__resp
 
 
-def Joke():
+class Joke:
     """
     Get a random Jokes
 
@@ -191,21 +191,22 @@ def Joke():
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get(f"https://some-random-api.ml/joke")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
-    __resp = __resp.json()
+    def __init__(self):
+        self.__resp = None
+        try:
+            self.__resp = requests.get(f"https://some-random-api.ml/joke")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
+        self.__resp = self.__resp.json()
 
-    joke = __resp['joke']
-    raw = __resp
-    return joke
+        self.joke = self.__resp['joke']
+        self.raw = self.__resp
 
 
 class Lyrics:
