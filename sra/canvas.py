@@ -2050,7 +2050,7 @@ class Overlay:
             raise sra.exceptions.ImageNotFound(
                 f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    def Triggered(self, avatar_url: str, name: str = "image.png"):
+    def Triggered(self, avatar_url: str, name: str = "image.gif"):
         """
         Get a Triggered GIF with your Avatar.
 
