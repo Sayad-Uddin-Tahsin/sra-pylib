@@ -10,21 +10,23 @@ class Bird:
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get("https://some-random-api.ml/facts/bird")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+    def __init__(self):
+        self.__resp = None
+        try:
+            self.__resp = requests.get("https://some-random-api.ml/facts/bird")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
 
-    __resp = __resp.json()
+        self.__resp = self.__resp.json()
 
-    fact = __resp['fact']
-    raw = __resp
+        self.fact = self.__resp['fact']
+        self.raw = self.__resp
 
 
 class Cat:
@@ -35,21 +37,23 @@ class Cat:
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get("https://some-random-api.ml/facts/cat")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+    def __init__(self):
+        self.__resp = None
+        try:
+            self.__resp = requests.get("https://some-random-api.ml/facts/cat")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
 
-    __resp = __resp.json()
+        self.__resp = self.__resp.json()
 
-    fact = __resp['fact']
-    raw = __resp
+        self.fact = self.__resp['fact']
+        self.raw = self.__resp
 
 
 class Dog:
@@ -60,21 +64,23 @@ class Dog:
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get("https://some-random-api.ml/facts/dog")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+    def __init__(self):
+        self.__resp = None
+        try:
+            self.__resp = requests.get("https://some-random-api.ml/facts/dog")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
 
-    __resp = __resp.json()
+        self.__resp = self.__resp.json()
 
-    fact = __resp['fact']
-    raw = __resp
+        self.fact = self.__resp['fact']
+        self.raw = self.__resp
 
 
 class Fox:
@@ -85,21 +91,23 @@ class Fox:
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get("https://some-random-api.ml/facts/fox")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+    def __init__(self):
+        self.__resp = None
+        try:
+            self.__resp = requests.get("https://some-random-api.ml/facts/fox")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
 
-    __resp = __resp.json()
+        self.__resp = self.__resp.json()
 
-    fact = __resp['fact']
-    raw = __resp
+        self.fact = self.__resp['fact']
+        self.raw = self.__resp
 
 
 class Koala:
@@ -110,21 +118,23 @@ class Koala:
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get("https://some-random-api.ml/facts/koala")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+    def __init__(self):
+        self.__resp = None
+        try:
+            self.__resp = requests.get("https://some-random-api.ml/facts/koala")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
 
-    __resp = __resp.json()
+        self.__resp = self.__resp.json()
 
-    fact = __resp['fact']
-    raw = __resp
+        self.fact = self.__resp['fact']
+        self.raw = self.__resp
 
 
 class Panda:
@@ -135,18 +145,20 @@ class Panda:
     :raise APITimeout: API taken too long to respond!
     :raise APIError: Error Returned by API
     """
-    try:
-        __resp = requests.get("https://some-random-api.ml/facts/panda")
-    except requests.exceptions.ConnectionError:
-        raise sra.exceptions.APITimeout("API taken too long to respond!")
-    if __resp.status_code != 200:
-        if 'error' in __resp.json():
-            raise sra.exceptions.APIError(__resp.json()['error'])
-        else:
-            raise sra.exceptions.APIError(
-                f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+    def __init__(self):
+        self.__resp = None
+        try:
+            self.__resp = requests.get("https://some-random-api.ml/facts/panda")
+        except requests.exceptions.ConnectionError:
+            raise sra.exceptions.APITimeout("API taken too long to respond!")
+        if self.__resp.status_code != 200:
+            if 'error' in self.__resp.json():
+                raise sra.exceptions.APIError(self.__resp.json()['error'])
+            else:
+                raise sra.exceptions.APIError(
+                    f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
 
-    __resp = __resp.json()
+        self.__resp = self.__resp.json()
 
-    fact = __resp['fact']
-    raw = __resp
+        self.fact = self.__resp['fact']
+        self.raw = self.__resp

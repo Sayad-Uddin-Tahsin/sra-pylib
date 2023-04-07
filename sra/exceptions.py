@@ -80,3 +80,33 @@ class ImageRetrieveError(Exception):
     """
     raises when API responses an error!
     """
+
+
+class InvalidTemplate(Exception):
+    """
+    raises when the Template is Invalid
+    """
+
+
+class InvalidBackground(Exception):
+    """
+    raises when the Background is Invalid
+    """
+
+
+class InvalidFont(Exception):
+    """
+    raises when the Font is Invalid
+    """
+
+
+class InvalidType(Exception):
+    """
+    raises when the Type is Invalid
+    """
+
+
+class InvalidTextColor(Exception):
+    """
+    raises when the Text Color is Invalid
+    """
