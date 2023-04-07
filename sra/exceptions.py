@@ -110,3 +110,9 @@ class InvalidTextColor(Exception):
     """
     raises when the Text Color is Invalid
     """
+
+
+class ThresholdError(Exception):
+    """
+    raises when the Threshold Power is Invalid
+    """
