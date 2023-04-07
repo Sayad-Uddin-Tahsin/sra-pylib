@@ -587,6 +587,7 @@ class Filter:
         :raise ImageNotFound: When failed to save Image
         :raise ImageRetrieveError: Raises when failed to retrieve the Image
         :raise InvalidAvatarURL: When Avatar URL doesn't meet the conditions
+        :raise ThresholdError: When the Threshold power is Invalid
         :raise APITimeout: API taken too long to respond!
         :raise APIError: Error Returned by API
         """
@@ -608,6 +609,8 @@ class Filter:
         if not validFormat:
             raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
+        if 0 < int(threshold) <= 255:
+            raise sra.exceptions.ThresholdError("Threshold Power must be within 0 - 255!")
 
         path = name
 
