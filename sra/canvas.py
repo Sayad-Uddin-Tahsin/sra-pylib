@@ -609,7 +609,7 @@ class Filter:
         if not validFormat:
             raise sra.exceptions.InvalidFileFormat(
                 'Invalid File Format given. File Format must be ".png", ".jpg" or "jpeg"!')
-        if 0 < int(threshold) <= 255:
+        if 0 > int(threshold) > 255:
             raise sra.exceptions.ThresholdError("Threshold Power must be within 0 - 255!")
 
         path = name
