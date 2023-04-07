@@ -176,7 +176,7 @@ class Pokedex:
 
         class Stats:
             def __init__(self, stats_dict):
-                self.stats_dict = stats_dict
+                self.raw = stats_dict
                 self.hp = stats_dict['hp']
                 self.attack = stats_dict['attack']
                 self.defense = stats_dict['defense']
@@ -189,7 +189,7 @@ class Pokedex:
 
         class Family:
             def __init__(self, family_dict):
-                self.family_dict = family_dict
+                self.raw = family_dict
                 self.evolutionStage = family_dict['evolutionStage']
                 self.evolutionLine = family_dict['evolutionLine']
 
@@ -197,7 +197,7 @@ class Pokedex:
 
         class Sprite:
             def __init__(self, sprites_dict):
-                self.sprites_dict = sprites_dict
+                self.raw = sprites_dict
                 self.normal = sprites_dict['normal']
                 self.animated = sprites_dict['animated']
 

@@ -25,8 +25,10 @@ class Filter:
     The Main Class of Canvas/Filter. Filter APIs are available as Sub-Class.
     """
 
-    @classmethod
-    def Blue(cls, avatar_url: str, name: str = "image.png"):
+    def __init__(self):
+        self.__resp = None
+
+    def Blue(self, avatar_url: str, name: str = "image.png"):
         """
         Blueify your Avatar.
 
@@ -63,18 +65,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/filter/blue?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/blue?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Blurple(cls, avatar_url: str, name: str = "image.png"):
+    def Blurple(self, avatar_url: str, name: str = "image.png"):
         """
         Blurplify your Avatar.
 
@@ -110,18 +113,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/filter/blurple?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/blurple?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Blurple2(cls, avatar_url: str, name: str = "image.png"):
+    def Blurple2(self, avatar_url: str, name: str = "image.png"):
         """
         Blurplify your Avatar (New Discord blurple).
 
@@ -157,18 +161,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/filter/blurple2?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/blurple2?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Brightness(cls, avatar_url: str, brightness: int = 30, name: str = "image.png"):
+    def Brightness(self, avatar_url: str, brightness: int = 30, name: str = "image.png"):
         """
         Brighten your Avatar.
 
@@ -208,20 +213,20 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(
+            self.__resp = requests.get(
                 f"https://some-random-api.ml/canvas/filter/brightness?avatar={avatar_url}&brightness={brightness}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Color(cls, avatar_url: str, color: str, name: str = "image.png"):
+    def Color(self, avatar_url: str, color: str, name: str = "image.png"):
         """
         Tint your Avatar a certain color. An alias of Tint
 
@@ -264,19 +269,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/color?color={color}&avatar={avatar_url}",
-                                  stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/color?color={color}&avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Tint(cls, avatar_url: str, color: str, name: str = "image.png"):
+    def Tint(self, avatar_url: str, color: str, name: str = "image.png"):
         """
         Tint your Avatar a certain color.
 
@@ -319,19 +324,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/color?color={color}&avatar={avatar_url}",
-                                  stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/color?color={color}&avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def filter(cls, avatar_url: str, name: str = "image.png"):
+    def filter(self, avatar_url: str, name: str = "image.png"):
         """
         Make your Avatar green like the Hulk.
 
@@ -367,18 +372,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/filter/green?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/green?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Greyscale(cls, avatar_url: str, name: str = "image.png"):
+    def Greyscale(self, avatar_url: str, name: str = "image.png"):
         """
         Greyscale your Avatar.
 
@@ -414,19 +420,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/filter/greyscale?avatar={avatar_url}",
-                                  stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/greyscale?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def InvertGrayscale(cls, avatar_url: str, name: str = "image.png"):
+    def InvertGrayscale(self, avatar_url: str, name: str = "image.png"):
         """
         Invert and grayscale your Avatar.
 
@@ -462,19 +468,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/filter/invertgreyscale?avatar={avatar_url}",
-                                  stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/invertgreyscale?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Red(cls, avatar_url: str, name: str = "image.png"):
+    def Red(self, avatar_url: str, name: str = "image.png"):
         """
         Redify your Avatar.
 
@@ -510,18 +516,18 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/filter/red?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/red?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Sepia(cls, avatar_url: str, name: str = "image.png"):
+    def Sepia(self, avatar_url: str, name: str = "image.png"):
         """
         Apply a sepia filter to your Avatar.
 
@@ -557,18 +563,19 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/filter/sepia?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/sepia?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Threshold(cls, avatar_url: str, threshold: int = 100, name: str = "image.png"):
+    def Threshold(self, avatar_url: str, threshold: int = 100, name: str = "image.png"):
         """
         Threshold your Avatar.
 
@@ -605,25 +612,28 @@ class Filter:
         path = name
 
         try:
-            __resp = requests.get(
+            self.__resp = requests.get(
                 f"https://some-random-api.ml/canvas/threshold?avatar={avatar_url}&threshold={threshold}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
 
 class Misc:
     """
-        The Main Class of Canvas/Misc. Misc APIs are available as Sub-Class.
+    The Main Class of Canvas/Misc. Misc APIs are available as Sub-Class.
     """
 
-    @classmethod
-    def BisexualBorder(cls, avatar_url: str, name: str = "image.png"):
+    def __init__(self):
+        self.__resp = None
+
+    def BisexualBorder(self, avatar_url: str, name: str = "image.png"):
         """
         Add a bisex flag border to your Avatar.
 
@@ -659,18 +669,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/bisexual?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/bisexual?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Blur(cls, avatar_url: str, name: str = "image.png"):
+    def Blur(self, avatar_url: str, name: str = "image.png"):
         """
         Blur your Avatar.
 
@@ -706,18 +717,18 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/blur?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/blur?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def CircleCrop(cls, image_url: str, name: str = "image.png"):
+    def CircleCrop(self, image_url: str, name: str = "image.png"):
         """
         Crop an image to a Circle.
 
@@ -748,18 +759,18 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/crop?avatar={image_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/crop?avatar={image_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def ColorViewer(cls, hex: str, name: str = "image.png"):
+    def ColorViewer(self, hex: str, name: str = "image.png"):
         """
         View a color.
 
@@ -794,18 +805,18 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/colorviewer?hex={hex}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/colorviewer?hex={hex}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def HeartCrop(cls, avatar_url: str, name: str = "image.png"):
+    def HeartCrop(self, avatar_url: str, name: str = "image.png"):
         """
         Crop an image to a heart shape
 
@@ -841,18 +852,18 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/heart?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/heart?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def RGBtoHEX(cls, rgb: str):
+    def RGBtoHEX(self, rgb: str):
         """
         Converts RGB code to HEX code
 
@@ -867,23 +878,22 @@ class Misc:
             raise sra.exceptions.InvalidRGBCode(f"RGB Color Code must contains 3 blocks!")
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/hex?rgb={rgb}")
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/hex?rgb={rgb}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
 
-        if __resp.status_code == 200:
-            hex = __resp.json()['hex']
+        if self.__resp.status_code == 200:
+            hex = self.__resp.json()['hex']
             return hex
         else:
-            if __resp.status_code != 200:
-                if 'error' in __resp.json():
-                    raise sra.exceptions.APIError(__resp.json()['error'])
+            if self.__resp.status_code != 200:
+                if 'error' in self.__resp.json():
+                    raise sra.exceptions.APIError(self.__resp.json()['error'])
                 else:
                     raise sra.exceptions.APIError(
-                        f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+                        f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
 
-    @classmethod
-    def Horny(cls, avatar_url: str, name: str = "image.png"):
+    def Horny(self, avatar_url: str, name: str = "image.png"):
         """
         Makes Horny card with the Avatar.
 
@@ -919,18 +929,18 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/horny?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/horny?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def ItsSoStupid(cls, avatar_url: str, name: str = "image.png"):
+    def ItsSoStupid(self, avatar_url: str, name: str = "image.png"):
         """
         Make an "Its so stupid" meme with your Avatar
 
@@ -966,19 +976,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/its-so-stupid?avatar={avatar_url}",
-                                  stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/its-so-stupid?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Jpg(cls, avatar_url: str, name: str = "image.png"):
+    def Jpg(self, avatar_url: str, name: str = "image.png"):
         """
         Blur your Avatar. An alias of Blur
 
@@ -1014,18 +1024,18 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/jpg?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/jpg?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def LesbianBorder(cls, avatar_url: str, name: str = "image.png"):
+    def LesbianBorder(self, avatar_url: str, name: str = "image.png"):
         """
         Add a lesbian flag border to your Avatar.
 
@@ -1061,18 +1071,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/lesbian?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/lesbian?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def LGBTBorder(cls, avatar_url: str, name: str = "image.png"):
+    def LGBTBorder(self, avatar_url: str, name: str = "image.png"):
         """
         Add a lgbt flag border to your Avatar.
 
@@ -1108,18 +1119,18 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/lgbt?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/lgbt?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Lolice(cls, avatar_url: str, name: str = "image.png"):
+    def Lolice(self, avatar_url: str, name: str = "image.png"):
         """
         Make Loli police to your Avatar.
 
@@ -1155,18 +1166,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/lolice?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/lolice?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def GenshinNamecard(cls, avatar_url: str, username: str, birthday: str, description: typing.Optional[str] = None,
+    def GenshinNamecard(self, avatar_url: str, username: str, birthday: str, description: typing.Optional[str] = None,
                         name: str = "image.png"):
         """
         Make Genshin Namecard
@@ -1206,20 +1218,20 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(
+            self.__resp = requests.get(
                 f"https://some-random-api.ml/canvas/misc/namecard?avatar={avatar_url}&birthday={birthday}&username={username}{'&description=' + description if description is not None else ''}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def NoBitches(cls, text, name: str = "image.png"):
+    def NoBitches(self, text, name: str = "image.png"):
         """
         Make No Bitches Meme.
 
@@ -1247,19 +1259,20 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/nobitches?no={urllib.parse.quote_plus(text)}",
-                                  stream=True)
+            self.__resp = requests.get(
+                f"https://some-random-api.ml/canvas/nobitches?no={urllib.parse.quote_plus(text)}",
+                stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def NonbinaryBorder(cls, avatar_url: str, name: str = "image.png"):
+    def NonbinaryBorder(self, avatar_url: str, name: str = "image.png"):
         """
         Make Nonbinary Bordered Avatar.
 
@@ -1295,18 +1308,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/nonbinary?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/nonbinary?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Oogway(cls, quote: str, name: str = "image.png"):
+    def Oogway(self, quote: str, name: str = "image.png"):
         """
         Make Oogway meme with custom quote.
 
@@ -1334,19 +1348,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(
+            self.__resp = requests.get(
                 f"https://some-random-api.ml/canvas/misc/oogway?quote={urllib.parse.quote_plus(quote)}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Oogway2(cls, quote: str, name: str = "image.png"):
+    def Oogway2(self, quote: str, name: str = "image.png"):
         """
         Make Oogway meme with custom quote (Updated).
 
@@ -1373,19 +1387,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(
+            self.__resp = requests.get(
                 f"https://some-random-api.ml/canvas/misc/oogway2?quote={urllib.parse.quote_plus(quote)}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def PansexualBorder(cls, avatar_url: str, name: str = "image.png"):
+    def PansexualBorder(self, avatar_url: str, name: str = "image.png"):
         """
         Make Pansexual Bordered Avatar.
 
@@ -1421,18 +1435,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/pansexual?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/pansexual?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Pixelate(cls, avatar_url: str, name: str = "image.png"):
+    def Pixelate(self, avatar_url: str, name: str = "image.png"):
         """
         Make your Pixelated Avatar.
 
@@ -1468,18 +1483,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/pixelate?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/pixelate?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def HEXtoRGB(cls, hex: str):
+    def HEXtoRGB(self, hex: str):
         """
         Converts HEX code to RGB code.
 
@@ -1497,24 +1513,23 @@ class Misc:
                 f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(hex)} in length")
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/rgb?hex={hex}")
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/rgb?hex={hex}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
 
-        if __resp.status_code == 200:
-            __resp = __resp.json()
-            rgb = f"{__resp['r']}, {__resp['g']}, {__resp['b']}"
+        if self.__resp.status_code == 200:
+            self.__resp = self.__resp.json()
+            rgb = f"{self.__resp['r']}, {self.__resp['g']}, {self.__resp['b']}"
             return rgb
         else:
-            if __resp.status_code != 200:
-                if 'error' in __resp.json():
-                    raise sra.exceptions.APIError(__resp.json()['error'])
+            if self.__resp.status_code != 200:
+                if 'error' in self.__resp.json():
+                    raise sra.exceptions.APIError(self.__resp.json()['error'])
                 else:
                     raise sra.exceptions.APIError(
-                        f"API is  Down now, Please try again later!\nStatus Code: {__resp.status_code} returned, 200 expected!")
+                        f"API is  Down now, Please try again later!\nStatus Code: {self.__resp.status_code} returned, 200 expected!")
 
-    @classmethod
-    def SimpCard(cls, avatar_url: str, name: str = "image.png"):
+    def SimpCard(self, avatar_url: str, name: str = "image.png"):
         """
         Make Simp Card with your Avatar.
 
@@ -1550,18 +1565,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/simpcard?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/simpcard?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Tonikawa(cls, avatar_url: str, name: str = "image.png"):
+    def Tonikawa(self, avatar_url: str, name: str = "image.png"):
         """
         Make Tonikawa with your Avatar.
 
@@ -1597,18 +1613,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/tonikawa?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/tonikawa?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def TransgenderBorder(cls, avatar_url: str, name: str = "image.png"):
+    def TransgenderBorder(self, avatar_url: str, name: str = "image.png"):
         """
         Make Transgender Border with your Avatar
 
@@ -1644,21 +1661,21 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/misc/transgender?avatar={avatar_url}",
-                                  stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/transgender?avatar={avatar_url}",
+                                       stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
     themes = typing.Literal['light', 'dark', 'dim']
 
-    @classmethod
-    def Tweet(cls, display_name: str, username: str, avatar_url: str, comment: str,
+    def Tweet(self, display_name: str, username: str, avatar_url: str, comment: str,
               replyNumber: typing.Optional[int] = None, likeNumber: typing.Optional[int] = None,
               retweetNumber: typing.Optional[int] = None, theme: themes = 'light', name: str = "image.png"):
         """
@@ -1716,20 +1733,20 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(
+            self.__resp = requests.get(
                 f"https://some-random-api.ml/canvas/tweet?avatar={avatar_url}&displayname={urllib.parse.quote_plus(display_name)}&username={urllib.parse.quote_plus(username)}&comment={urllib.parse.quote_plus(comment)}{'&replies=' + str(replyNumber) if replyNumber is not None else ''}{'&likes=' + str(likeNumber) if likeNumber is not None else ''}{'&retweets=' + str(retweetNumber) if retweetNumber is not None else ''}&theme={theme.lower()}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def YoutubeComment(cls, username: str, avatar_url: str, comment: str, name: str = "image.png"):
+    def YoutubeComment(self, username: str, avatar_url: str, comment: str, name: str = "image.png"):
         """
         Make Fake Youtube Comment.
 
@@ -1772,18 +1789,19 @@ class Misc:
         path = name
 
         try:
-            __resp = requests.get(
+            self.__resp = requests.get(
                 f"https://some-random-api.ml/canvas/youtube-comment?avatar={avatar_url}&username={urllib.parse.quote_plus(username)}&comment={urllib.parse.quote_plus(comment)}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
 
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
 
 class Overlay:
@@ -1791,8 +1809,10 @@ class Overlay:
     The Main Class of Canvas/Overlay. Overlay APIs are available as function.
     """
 
-    @classmethod
-    def Comrade(cls, avatar_url: str, name: str = "image.png"):
+    def __init__(self):
+        self.__resp = None
+
+    def Comrade(self, avatar_url: str, name: str = "image.png"):
         """
         Make Comraded Avatar
 
@@ -1828,18 +1848,18 @@ class Overlay:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/comrade?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/comrade?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Gay(cls, avatar_url: str, name: str = "image.png"):
+    def Gay(self, avatar_url: str, name: str = "image.png"):
         """
         Give your Avatar a rainbow overlay.
 
@@ -1875,18 +1895,18 @@ class Overlay:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/gay?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/gay?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Glass(cls, avatar_url: str, name: str = "image.png"):
+    def Glass(self, avatar_url: str, name: str = "image.png"):
         """
         Give your Avatar a glass effect overlay
 
@@ -1922,18 +1942,18 @@ class Overlay:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/glass?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/glass?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Jail(cls, avatar_url: str, name: str = "image.png"):
+    def Jail(self, avatar_url: str, name: str = "image.png"):
         """
         Make your Avatar Jailed
 
@@ -1969,18 +1989,18 @@ class Overlay:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/jail?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/jail?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Passed(cls, avatar_url: str, name: str = "image.png"):
+    def Passed(self, avatar_url: str, name: str = "image.png"):
         """
         Mission passed overlay to your Avatar.
 
@@ -2016,18 +2036,18 @@ class Overlay:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/passed?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/passed?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Triggered(cls, avatar_url: str, name: str = "image.png"):
+    def Triggered(self, avatar_url: str, name: str = "image.png"):
         """
         Get a Triggered GIF with your Avatar.
 
@@ -2063,18 +2083,18 @@ class Overlay:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/triggered?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/triggered?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
 
-    @classmethod
-    def Wasted(cls, avatar_url: str, name: str = "image.png"):
+    def Wasted(self, avatar_url: str, name: str = "image.png"):
         """
         Give your Avatar a Wasted overlay.
 
@@ -2110,12 +2130,13 @@ class Overlay:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/canvas/wasted?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.ml/canvas/wasted?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
-        if __resp.status_code == 200:
+        if self.__resp.status_code == 200:
             with open(path, 'wb') as f:
-                f.write(__resp.content)
+                f.write(self.__resp.content)
                 return True
         else:
-            raise sra.exceptions.ImageNotFound(f"Couldn't save the Image. Status Code: {__resp.status_code} returned")
+            raise sra.exceptions.ImageNotFound(
+                f"Couldn't save the Image. Status Code: {self.__resp.status_code} returned")
