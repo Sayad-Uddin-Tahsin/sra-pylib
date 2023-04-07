@@ -1502,7 +1502,7 @@ class Misc:
         """
         Converts HEX code to RGB code.
 
-        :param hex: Enter the RGB Code
+        :param hex: Enter the HEX Code
         :return: RGB Code
         :raise InvalidHEXColor: When HEX color code given, is invalid
         :raise APITimeout: API taken too long to respond!
