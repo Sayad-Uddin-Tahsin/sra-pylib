@@ -4,7 +4,7 @@ import sra
 
 class Bird:
     """
-    Returns a random Image Link about Bird by attributes
+    Returns a random Image Link of a Bird by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -61,7 +61,7 @@ class Bird:
 
 class Cat:
     """
-    Returns a random Image Link about Cat by attributes
+    Returns a random Image Link of a Cat by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -118,7 +118,7 @@ class Cat:
 
 class Dog:
     """
-    Returns a random Image Link about Dog by attributes
+    Returns a random Image Link of a Dog by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -175,7 +175,7 @@ class Dog:
 
 class Fox:
     """
-    Returns a random Image Link about Fox by attributes
+    Returns a random Image Link of a Fox by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -232,7 +232,7 @@ class Fox:
 
 class Kangaroo:
     """
-    Returns a random Image Link about Kangaroo by attributes
+    Returns a random Image Link of a Kangaroo by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -289,7 +289,7 @@ class Kangaroo:
 
 class Koala:
     """
-    Returns a random Image Link about Koala by attributes
+    Returns a random Image Link of a Koala by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -346,7 +346,7 @@ class Koala:
 
 class Panda:
     """
-    Returns a random Image Link about Panda by attributes
+    Returns a random Image Link of a Panda by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -403,7 +403,7 @@ class Panda:
 
 class Pikachu:
     """
-    Returns a random Image Link about Pikachu by attributes
+    Returns a random Image Link of a Pikachu by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -460,7 +460,7 @@ class Pikachu:
 
 class Raccoon:
     """
-    Returns a random Image Link about Raccoon by attributes
+    Returns a random Image Link of a Raccoon by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -517,7 +517,7 @@ class Raccoon:
 
 class RedPanda:
     """
-    Returns a random Image Link about Red Panda by attributes
+    Returns a random Image Link of a Red Panda by attributes
 
 
     :raise APITimeout: API taken too long to respond!
@@ -574,7 +574,7 @@ class RedPanda:
 
 class Whale:
     """
-    Returns a random Image Link about Whale by attributes
+    Returns a random Image Link of a Whale by attributes
 
 
     :raise APITimeout: API taken too long to respond!
