@@ -30,6 +30,7 @@ setup(
     ],
     python_requires='>=3.7',
     project_urls={
+        'Documentation': 'https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki',
         'Bug Tracker': 'https://github.com/Sayad-Uddin-Tahsin/sra-pylib/issues',
         'PyPI': 'https://pypi.org/project/sra-pylib/'
     },
