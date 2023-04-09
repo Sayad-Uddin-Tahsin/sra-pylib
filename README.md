@@ -25,11 +25,16 @@ python -m pip install sra-pylib
 `sra-pylib` requires Python 3.7 or later.
 
 ## Endpoints
-`sra-pylib` is currently under development. Currently, only the `animal`, `animu`, `canvas`, `fact`, `image`, `others` and `pokemon` categories of APIs are available in stable version, but we're working to add more.
+`sra-pylib` is synced with some-random-api. It has all the Endpoints provided by some-random-api except the Premium ones.
+
+## Documentation
+Full documentation for the sra-pylib module can be found on [Wiki](https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki). The documentation includes detailed information on how to use the module, including examples and reference documentation for all classes and methods.
+
+If you have any questions or issues with the module, please refer to the documentation or submit a bug report on the [GitHub issues page](https://github.com/Sayad-Uddin-Tahsin/sra-pylib/issues).
 
 ## Cloning the Repository
-If you want to work with the development version of sra-pylib, you can clone the repository and install it using pip:
+You also can install sra-pylib directly from Github, by using this pip command:
 ```console
 pip install git+https://github.com/Sayad-Uddin-Tahsin/sra-pylib.git
 ```
-This will install the package from the cloned repository.
+This will install the package directly from the repository.
