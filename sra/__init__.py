@@ -10,5 +10,6 @@ from sra import welcome
 from sra import exceptions
 import datetime
 
-__version__ = "1.3.1"
+__version__ = "1.4.0"
 __copyright__ = f"© Copyright 2023 {('- ' + str(datetime.datetime.today().year) + ' ') if int(datetime.datetime.today().year) != 2023 else ''}Sayad Uddin Tahsin."
+__doc__ = "https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki"
