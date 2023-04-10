@@ -8,8 +8,8 @@ import re
 def is_valid_url(url):
     pattern = re.compile(
         r'^https?://'
-        r'([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/?'
-        r'([^!s/]+/?)+$'
+        r'(?:[a-z0-9]+(?:\.[a-z0-9]+)*/)*' # updated pattern to avoid backtracking
+        r'[a-z0-9]+\.[a-z]+/?$'
     )
     return bool(pattern.match(url))
 
