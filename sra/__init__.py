@@ -12,5 +12,9 @@ import datetime
 
 __version__ = "1.4.0"
 __copyright__ = f"© Copyright 2023 {('- ' + str(datetime.datetime.today().year) + ' ') if int(datetime.datetime.today().year) != 2023 else ''}Sayad Uddin Tahsin."
-__doc__ = "https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki"
+__author__ = "Sayad Uddin Tahsin"
+__author_email__ = "mr.pluto012@gmail.com"
+__documentation__ = "https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki"
+__url__ = https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki"
 __bug_report__ = "https://github.com/Sayad-Uddin-Tahsin/sra-pylib/issues"
+__license__ = "MIT"
