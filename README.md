@@ -3,7 +3,6 @@
 
 ```python
 import sra
-
 >>> print(sra.animal.Panda.image_link)  # Prints a Panda Image link
 "https://i.imgur.com/YVLrUO9.jpg"
 >>> print(sra.animal.Panda.fact)  # Prints a Panda Fact
@@ -13,8 +12,8 @@ import sra
 With `sra-pylib`, you can easily access the various endpoints of `some-random-api` in your Python projects, making it a powerful tool for working with image, fact, and other types of data.
 
 <a href="https://pypi.org/project/sra-pylib"><img src="https://img.shields.io/pypi/status/sra-pylib?label=Status&logo=pypi&logoColor=ffffff" height=22></a>
-<a href="https://pypi.org/project/sra-pylib"><img src="https://img.shields.io/pypi/v/sra-pylib?label=PyPI Version&logo=pypi&logoColor=ffffff" height=22></a><a href="https://app.fossa.com/projects/git%2Bgithub.com%2FSayad-Uddin-Tahsin%2Fsra-pylib?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FSayad-Uddin-Tahsin%2Fsra-pylib.svg?type=shield"/></a>
-
+<a href="https://pypi.org/project/sra-pylib"><img src="https://img.shields.io/pypi/v/sra-pylib?label=PyPI Version&logo=pypi&logoColor=ffffff" height=22></a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2FSayad-Uddin-Tahsin%2Fsra-pylib?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FSayad-Uddin-Tahsin%2Fsra-pylib.svg?type=shield"  height=22></a>
 <a href="https://python.org"><img src="https://img.shields.io/pypi/pyversions/sra-pylib?label=Python&logo=python&logoColor=ffdd54" height=22></a>
 
 
