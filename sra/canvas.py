@@ -9,7 +9,7 @@ def is_valid_url(url):
     pattern = re.compile(
         r'^https?://'
         r'([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/?'
-        r'([^\s/]+/?)+$'
+        r'([^!s/]+/?)+$'
     )
     return bool(pattern.match(url))
 
