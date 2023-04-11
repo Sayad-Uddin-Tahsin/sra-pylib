@@ -15,6 +15,6 @@ __copyright__ = f"© Copyright 2023 {('- ' + str(datetime.datetime.today().year)
 __author__ = "Sayad Uddin Tahsin"
 __author_email__ = "mr.pluto012@gmail.com"
 __documentation__ = "https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki"
-__url__ = https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki"
+__url__ = "https://github.com/Sayad-Uddin-Tahsin/sra-pylib/wiki"
 __bug_report__ = "https://github.com/Sayad-Uddin-Tahsin/sra-pylib/issues"
 __license__ = "MIT"
