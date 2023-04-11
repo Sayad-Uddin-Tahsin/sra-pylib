@@ -8,15 +8,25 @@ import shutil
 def is_valid_url(url):
     pattern = re.compile(
         r'^https?://'
-        r'(?:[a-z0-9]+(?:\.[a-z0-9]+)*/)*'
-        r'[a-z0-9]+\.[a-z]+/?$'
+        r'([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/?'
+        r'([^\s/]+/?)+$'
     )
     return bool(pattern.match(url))
 
-def get_exact_avatar_url(url):
-    if "?" in str(url):
-        url = (str(url).split("?"))[0]
-    return url
+
+def isValidAvatarURL(url):
+    try:
+        response = requests.get(url, stream=True)
+        content_type = response.headers.get('content-type')
+        if 'image' in content_type:
+            if 'png' in content_type:
+                return True
+            elif 'jpg' in content_type:
+                return True
+    except requests.exceptions.RequestException:
+        return False
+    return False
+
 
 class WelcomeLeaveFree:
     """
@@ -45,8 +55,8 @@ class WelcomeLeaveFree:
         if not is_valid_url(avatar_url):
             raise sra.exceptions.InvalidAvatarURL(
                 "Seems the Avatar URL is Invalid. Please recheck it and make sure it startswith http or https")
-        avatar_url = get_exact_avatar_url(avatar_url)
-        if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png"):
+        if not str(avatar_url).endswith(".jpg") and not str(avatar_url).endswith(".png") and not isValidAvatarURL(
+                avatar_url):
             raise sra.exceptions.InvalidAvatarURL(
                 "Avatar Format must be '.jpg' or '.png'"
             )
