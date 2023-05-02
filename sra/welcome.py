@@ -77,7 +77,7 @@ class WelcomeLeaveFree:
         path = name
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/welcome/img/{str(template)}/{str(background)}?type={type}&username={username}&avatar={avatar_url}&discriminator={discriminator}&guildName={guildName}&memberCount={memberCount}&textcolor={textcolor}&key={key}{'&font=' + str(font) if font != None else ''}", stream=True)
+            __resp = requests.get(f"https://some-random-api.com/welcome/img/{str(template)}/{str(background)}?type={type}&username={username}&avatar={avatar_url}&discriminator={discriminator}&guildName={guildName}&memberCount={memberCount}&textcolor={textcolor}&key={key}{'&font=' + str(font) if font != None else ''}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if __resp.status_code == 200:

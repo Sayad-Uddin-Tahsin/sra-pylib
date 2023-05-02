@@ -13,7 +13,7 @@ def get_response(key: str, prompt: str):
     """
     try:
         __resp = requests.get(
-            f"https://some-random-api.ml/chatbot?message={urllib.parse.quote_plus(prompt)}&key={key}")
+            f"https://some-random-api.com/chatbot?message={urllib.parse.quote_plus(prompt)}&key={key}")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:

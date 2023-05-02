@@ -13,7 +13,7 @@ class Bird:
     def __init__(self):
         self.__resp = None
         try:
-            self.__resp = requests.get("https://some-random-api.ml/facts/bird")
+            self.__resp = requests.get("https://some-random-api.com/facts/bird")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -40,7 +40,7 @@ class Cat:
     def __init__(self):
         self.__resp = None
         try:
-            self.__resp = requests.get("https://some-random-api.ml/facts/cat")
+            self.__resp = requests.get("https://some-random-api.com/facts/cat")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -67,7 +67,7 @@ class Dog:
     def __init__(self):
         self.__resp = None
         try:
-            self.__resp = requests.get("https://some-random-api.ml/facts/dog")
+            self.__resp = requests.get("https://some-random-api.com/facts/dog")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -94,7 +94,7 @@ class Fox:
     def __init__(self):
         self.__resp = None
         try:
-            self.__resp = requests.get("https://some-random-api.ml/facts/fox")
+            self.__resp = requests.get("https://some-random-api.com/facts/fox")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -121,7 +121,7 @@ class Koala:
     def __init__(self):
         self.__resp = None
         try:
-            self.__resp = requests.get("https://some-random-api.ml/facts/koala")
+            self.__resp = requests.get("https://some-random-api.com/facts/koala")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -148,7 +148,7 @@ class Panda:
     def __init__(self):
         self.__resp = None
         try:
-            self.__resp = requests.get("https://some-random-api.ml/facts/panda")
+            self.__resp = requests.get("https://some-random-api.com/facts/panda")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:

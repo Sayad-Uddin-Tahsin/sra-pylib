@@ -22,7 +22,7 @@ class Base64:
         """
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/base64?encode={urllib.parse.quote_plus(text)}")
+            __resp = requests.get(f"https://some-random-api.com/base64?encode={urllib.parse.quote_plus(text)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:
@@ -50,7 +50,7 @@ class Base64:
         """
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/base64?decode={urllib.parse.quote_plus(base64)}")
+            __resp = requests.get(f"https://some-random-api.com/base64?decode={urllib.parse.quote_plus(base64)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:
@@ -84,7 +84,7 @@ class Binary:
         """
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/binary?encode={urllib.parse.quote_plus(text)}")
+            __resp = requests.get(f"https://some-random-api.com/binary?encode={urllib.parse.quote_plus(text)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:
@@ -112,7 +112,7 @@ class Binary:
         """
 
         try:
-            __resp = requests.get(f"https://some-random-api.ml/binary?decode={urllib.parse.quote_plus(binary)}")
+            __resp = requests.get(f"https://some-random-api.com/binary?decode={urllib.parse.quote_plus(binary)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:
@@ -141,7 +141,7 @@ class BotToken:
     def __init__(self, id: str = None):
         self.__resp = None
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/bottoken?id={urllib.parse.quote_plus(id)}")
+            self.__resp = requests.get(f"https://some-random-api.com/bottoken?id={urllib.parse.quote_plus(id)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -168,7 +168,7 @@ class Dictionary:
     def __init__(self, word: str):
         self.__resp = None
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/dictionary?word={urllib.parse.quote_plus(word)}")
+            self.__resp = requests.get(f"https://some-random-api.com/dictionary?word={urllib.parse.quote_plus(word)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -194,7 +194,7 @@ class Joke:
     def __init__(self):
         self.__resp = None
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/joke")
+            self.__resp = requests.get(f"https://some-random-api.com/joke")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -230,7 +230,7 @@ class Lyrics:
     @staticmethod
     def __search(name: str):
         try:
-            __resp = requests.get(f"https://some-random-api.ml/others/lyrics?title={name}")
+            __resp = requests.get(f"https://some-random-api.com/others/lyrics?title={name}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:

@@ -13,7 +13,7 @@ class FacePalm:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animu/face-palm")
+            self.__resp = requests.get("https://some-random-api.com/animu/face-palm")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -65,7 +65,7 @@ class Hug:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animu/hug")
+            self.__resp = requests.get("https://some-random-api.com/animu/hug")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -117,7 +117,7 @@ class Pat:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animu/pat")
+            self.__resp = requests.get("https://some-random-api.com/animu/pat")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -169,7 +169,7 @@ class Wink:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animu/wink")
+            self.__resp = requests.get("https://some-random-api.com/animu/wink")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -221,7 +221,7 @@ class Quote:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animu/quote")
+            self.__resp = requests.get("https://some-random-api.com/animu/quote")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:

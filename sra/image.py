@@ -11,7 +11,7 @@ class Bird:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/bird")
+        __resp = requests.get("https://some-random-api.com/img/bird")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -68,7 +68,7 @@ class Cat:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/cat")
+        __resp = requests.get("https://some-random-api.com/img/cat")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -125,7 +125,7 @@ class Dog:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/dog")
+        __resp = requests.get("https://some-random-api.com/img/dog")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -182,7 +182,7 @@ class Fox:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/fox")
+        __resp = requests.get("https://some-random-api.com/img/fox")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -239,7 +239,7 @@ class Kangaroo:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/kangaroo")
+        __resp = requests.get("https://some-random-api.com/img/kangaroo")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -296,7 +296,7 @@ class Koala:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/koala")
+        __resp = requests.get("https://some-random-api.com/img/koala")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -353,7 +353,7 @@ class Panda:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/panda")
+        __resp = requests.get("https://some-random-api.com/img/panda")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -410,7 +410,7 @@ class Pikachu:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/pikachu")
+        __resp = requests.get("https://some-random-api.com/img/pikachu")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -467,7 +467,7 @@ class Raccoon:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/raccoon")
+        __resp = requests.get("https://some-random-api.com/img/raccoon")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -524,7 +524,7 @@ class RedPanda:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/red_panda")
+        __resp = requests.get("https://some-random-api.com/img/red_panda")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:
@@ -581,7 +581,7 @@ class Whale:
     :raise APIError: Error Returned by API
     """
     try:
-        __resp = requests.get("https://some-random-api.ml/img/whale")
+        __resp = requests.get("https://some-random-api.com/img/whale")
     except requests.exceptions.ConnectionError:
         raise sra.exceptions.APITimeout("API taken too long to respond!")
     if __resp.status_code != 200:

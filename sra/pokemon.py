@@ -22,7 +22,7 @@ class Ability:
     @staticmethod
     def __getability(ability):
         try:
-            __resp = requests.get(f"https://some-random-api.ml/pokemon/abilities?ability={urllib.parse.quote_plus(ability)}")
+            __resp = requests.get(f"https://some-random-api.com/pokemon/abilities?ability={urllib.parse.quote_plus(ability)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:
@@ -66,7 +66,7 @@ class Item:
     @staticmethod
     def __getitem(item):
         try:
-            __resp = requests.get(f"https://some-random-api.ml/pokemon/items?item={urllib.parse.quote_plus(item)}")
+            __resp = requests.get(f"https://some-random-api.com/pokemon/items?item={urllib.parse.quote_plus(item)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:
@@ -107,7 +107,7 @@ class Move:
     @staticmethod
     def __getmove(move):
         try:
-            __resp = requests.get(f"https://some-random-api.ml/pokemon/moves?move={urllib.parse.quote_plus(move)}")
+            __resp = requests.get(f"https://some-random-api.com/pokemon/moves?move={urllib.parse.quote_plus(move)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:
@@ -152,7 +152,7 @@ class Pokedex:
 
     def __getpokemon(self, pokemon):
         try:
-            __resp = requests.get(f"https://some-random-api.ml/pokemon/pokedex?pokemon={urllib.parse.quote_plus(pokemon)}")
+            __resp = requests.get(f"https://some-random-api.com/pokemon/pokedex?pokemon={urllib.parse.quote_plus(pokemon)}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if __resp.status_code != 200:

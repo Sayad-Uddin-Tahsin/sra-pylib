@@ -72,7 +72,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/blue?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/filter/blue?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -119,7 +119,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/blurple?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/filter/blurple?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -166,7 +166,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/blurple2?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/filter/blurple2?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -218,7 +218,7 @@ class Filter:
 
         try:
             self.__resp = requests.get(
-                f"https://some-random-api.ml/canvas/filter/brightness?avatar={avatar_url}&brightness={brightness}",
+                f"https://some-random-api.com/canvas/filter/brightness?avatar={avatar_url}&brightness={brightness}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -273,7 +273,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/color?color={color}&avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/color?color={color}&avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -327,7 +327,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/color?color={color}&avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/color?color={color}&avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -374,7 +374,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/green?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/filter/green?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -421,7 +421,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/greyscale?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/filter/greyscale?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -468,7 +468,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/invertgreyscale?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/filter/invertgreyscale?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -515,7 +515,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/red?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/filter/red?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -561,7 +561,7 @@ class Filter:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/filter/sepia?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/filter/sepia?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -613,7 +613,7 @@ class Filter:
 
         try:
             self.__resp = requests.get(
-                f"https://some-random-api.ml/canvas/threshold?avatar={avatar_url}&threshold={threshold}", stream=True)
+                f"https://some-random-api.com/canvas/threshold?avatar={avatar_url}&threshold={threshold}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -668,7 +668,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/bisexual?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/bisexual?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -715,7 +715,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/blur?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/blur?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -757,7 +757,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/crop?avatar={image_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/crop?avatar={image_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -803,7 +803,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/colorviewer?hex={hex}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/colorviewer?hex={hex}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -849,7 +849,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/heart?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/heart?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -875,7 +875,7 @@ class Misc:
             raise sra.exceptions.InvalidRGBCode(f"RGB Color Code must contains 3 blocks!")
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/hex?rgb={rgb}")
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/hex?rgb={rgb}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
 
@@ -925,7 +925,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/horny?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/horny?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -971,7 +971,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/its-so-stupid?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/its-so-stupid?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1018,7 +1018,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/jpg?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/jpg?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -1064,7 +1064,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/lesbian?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/lesbian?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1111,7 +1111,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/lgbt?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/lgbt?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -1157,7 +1157,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/lolice?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/lolice?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1209,7 +1209,7 @@ class Misc:
 
         try:
             self.__resp = requests.get(
-                f"https://some-random-api.ml/canvas/misc/namecard?avatar={avatar_url}&birthday={birthday}&username={username}{'&description=' + description if description is not None else ''}",
+                f"https://some-random-api.com/canvas/misc/namecard?avatar={avatar_url}&birthday={birthday}&username={username}{'&description=' + description if description is not None else ''}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1250,7 +1250,7 @@ class Misc:
 
         try:
             self.__resp = requests.get(
-                f"https://some-random-api.ml/canvas/nobitches?no={urllib.parse.quote_plus(text)}",
+                f"https://some-random-api.com/canvas/nobitches?no={urllib.parse.quote_plus(text)}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1297,7 +1297,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/nonbinary?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/nonbinary?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1338,7 +1338,7 @@ class Misc:
 
         try:
             self.__resp = requests.get(
-                f"https://some-random-api.ml/canvas/misc/oogway?quote={urllib.parse.quote_plus(quote)}", stream=True)
+                f"https://some-random-api.com/canvas/misc/oogway?quote={urllib.parse.quote_plus(quote)}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -1377,7 +1377,7 @@ class Misc:
 
         try:
             self.__resp = requests.get(
-                f"https://some-random-api.ml/canvas/misc/oogway2?quote={urllib.parse.quote_plus(quote)}", stream=True)
+                f"https://some-random-api.com/canvas/misc/oogway2?quote={urllib.parse.quote_plus(quote)}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -1423,7 +1423,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/pansexual?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/pansexual?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1470,7 +1470,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/pixelate?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/pixelate?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1500,7 +1500,7 @@ class Misc:
                 f"Given HEX Color Code must be 6 or 8 in length, but given code is {len(hex)} in length")
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/rgb?hex={hex}")
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/rgb?hex={hex}")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
 
@@ -1551,7 +1551,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/simpcard?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/simpcard?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1598,7 +1598,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/tonikawa?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/tonikawa?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1645,7 +1645,7 @@ class Misc:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/misc/transgender?avatar={avatar_url}",
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/misc/transgender?avatar={avatar_url}",
                                        stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1717,7 +1717,7 @@ class Misc:
 
         try:
             self.__resp = requests.get(
-                f"https://some-random-api.ml/canvas/tweet?avatar={avatar_url}&displayname={urllib.parse.quote_plus(display_name)}&username={urllib.parse.quote_plus(username)}&comment={urllib.parse.quote_plus(comment)}{'&replies=' + str(replyNumber) if replyNumber is not None else ''}{'&likes=' + str(likeNumber) if likeNumber is not None else ''}{'&retweets=' + str(retweetNumber) if retweetNumber is not None else ''}&theme={theme.lower()}",
+                f"https://some-random-api.com/canvas/tweet?avatar={avatar_url}&displayname={urllib.parse.quote_plus(display_name)}&username={urllib.parse.quote_plus(username)}&comment={urllib.parse.quote_plus(comment)}{'&replies=' + str(replyNumber) if replyNumber is not None else ''}{'&likes=' + str(likeNumber) if likeNumber is not None else ''}{'&retweets=' + str(retweetNumber) if retweetNumber is not None else ''}&theme={theme.lower()}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1772,7 +1772,7 @@ class Misc:
 
         try:
             self.__resp = requests.get(
-                f"https://some-random-api.ml/canvas/youtube-comment?avatar={avatar_url}&username={urllib.parse.quote_plus(username)}&comment={urllib.parse.quote_plus(comment)}",
+                f"https://some-random-api.com/canvas/youtube-comment?avatar={avatar_url}&username={urllib.parse.quote_plus(username)}&comment={urllib.parse.quote_plus(comment)}",
                 stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
@@ -1829,7 +1829,7 @@ class Overlay:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/comrade?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/comrade?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -1875,7 +1875,7 @@ class Overlay:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/gay?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/gay?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -1921,7 +1921,7 @@ class Overlay:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/glass?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/glass?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -1967,7 +1967,7 @@ class Overlay:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/jail?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/jail?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -2013,7 +2013,7 @@ class Overlay:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/passed?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/passed?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -2059,7 +2059,7 @@ class Overlay:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/triggered?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/triggered?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:
@@ -2105,7 +2105,7 @@ class Overlay:
         path = name
 
         try:
-            self.__resp = requests.get(f"https://some-random-api.ml/canvas/wasted?avatar={avatar_url}", stream=True)
+            self.__resp = requests.get(f"https://some-random-api.com/canvas/wasted?avatar={avatar_url}", stream=True)
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.ImageRetrieveError("Unable to Load the Image!")
         if self.__resp.status_code == 200:

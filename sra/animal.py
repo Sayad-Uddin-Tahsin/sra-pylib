@@ -13,7 +13,7 @@ class Bird:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/bird")
+            self.__resp = requests.get("https://some-random-api.com/animal/bird")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -73,7 +73,7 @@ class Cat:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/cat")
+            self.__resp = requests.get("https://some-random-api.com/animal/cat")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -133,7 +133,7 @@ class Dog:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/dog")
+            self.__resp = requests.get("https://some-random-api.com/animal/dog")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -193,7 +193,7 @@ class Fox:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/fox")
+            self.__resp = requests.get("https://some-random-api.com/animal/fox")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -253,7 +253,7 @@ class Kangaroo:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/kangaroo")
+            self.__resp = requests.get("https://some-random-api.com/animal/kangaroo")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -313,7 +313,7 @@ class Koala:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/koala")
+            self.__resp = requests.get("https://some-random-api.com/animal/koala")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -373,7 +373,7 @@ class Panda:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/panda")
+            self.__resp = requests.get("https://some-random-api.com/animal/panda")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -433,7 +433,7 @@ class Raccoon:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/raccoon")
+            self.__resp = requests.get("https://some-random-api.com/animal/raccoon")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
@@ -493,7 +493,7 @@ class RedPanda:
         self.__resp = None
 
         try:
-            self.__resp = requests.get("https://some-random-api.ml/animal/red_panda")
+            self.__resp = requests.get("https://some-random-api.com/animal/red_panda")
         except requests.exceptions.ConnectionError:
             raise sra.exceptions.APITimeout("API taken too long to respond!")
         if self.__resp.status_code != 200:
