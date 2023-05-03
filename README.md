@@ -36,6 +36,18 @@ Full documentation for the sra-pylib module can be found on [Wiki](https://githu
 
 If you have any questions or issues with the module, please refer to the documentation or submit a bug report on the [GitHub issues page](https://github.com/Sayad-Uddin-Tahsin/sra-pylib/issues).
 
+
+## Bug Report
+If you encounter any bugs while using sra-pylib, please report them by opening a new issue on the [GitHub repository](https://github.com/Sayad-Uddin-Tahsin/sra-pylib/issues). When reporting a bug, please include the following information:
+
+- A detailed description of the issue, including what you were trying to do when the bug occurred
+- The full traceback or error message, if applicable
+- Steps to reproduce the bug, if possible
+- Any additional information or context that might be relevant to the issue
+
+By reporting bugs, you can help improve the quality and reliability of sra-pylib for all user
+
+
 ## Cloning the Repository
 You can easily clone this repository by executing the following command:
 ```console
